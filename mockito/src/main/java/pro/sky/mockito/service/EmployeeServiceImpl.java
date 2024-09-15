@@ -22,13 +22,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
 
-    public void add(Employee employee) {
-
-    }
-
-    public Employee add (String firstName, String lastName) {
-        Employee employee = employees.get(createKey(firstName, lastName));
-        if (employees.size() >= SIZE_LIMIT) {
+        public Employee add (Employee employee) {
+                if (employees.size() >= SIZE_LIMIT) {
             throw new EmployeeStorageIsFullException();
         }
         if (employees.containsKey(createKey(employee))){

@@ -52,4 +52,12 @@ public class DepartmentService {
                 .collect(Collectors.groupingBy(Employee::getDepartment));
     }
 
+    public void fireAllInDepartment(int department) {
+        List<Employee> employees = getAll(department);
+        for (Employee employee : employees) {
+            employeeService.remove(employee.getFirstName(), employee.getLastName());
+        }
+    }
+
+
 }
