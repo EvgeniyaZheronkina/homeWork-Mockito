@@ -35,7 +35,7 @@ public class DepartmentController {
     }
 
 
-    @GetMapping(value = "/{id}/employees", params = "departmentId")
+    @GetMapping(value = "/id/employees", params = "id")
     public List<Employee> getAll(@PathVariable int id) {
         return departmentService.getAll(id);
     }

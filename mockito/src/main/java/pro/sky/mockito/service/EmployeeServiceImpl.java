@@ -1,5 +1,6 @@
 package pro.sky.mockito.service;
 
+import org.springframework.stereotype.Service;
 import pro.sky.mockito.exception.EmployeeAlreadyAddedException;
 import pro.sky.mockito.exception.EmployeeNotFoundException;
 import pro.sky.mockito.exception.EmployeeStorageIsFullException;
@@ -9,6 +10,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
     private static final int SIZE_LIMIT = 5;
     private final Map<String, Employee> employees;
@@ -49,11 +51,11 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employees.remove(createKey(firstName, lastName));
     }
 
-    public static String createKey(Employee employee) {
+    public String createKey(Employee employee) {
         return createKey(employee.getFirstName(), employee.getLastName());
     }
 
-    public static String createKey(String firstName, String lastName) {
+    public String createKey(String firstName, String lastName) {
         return (firstName + lastName).toLowerCase();
     }
 }
